@@ -13,7 +13,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField('date updated', default=timezone.now)
 
     class Meta:
-        ordering = ['title']
+        ordering = ['name']
 
     def __str__(self):
-        return self.title
+        return self.name
