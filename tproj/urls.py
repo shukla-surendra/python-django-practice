@@ -19,6 +19,10 @@ from rest_framework import routers
 from quickstart import views
 from django.contrib import admin
 
+from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_jwt.views import refresh_jwt_token
+from rest_framework_jwt.views import verify_jwt_token
+
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
@@ -28,6 +32,9 @@ router.register(r'groups', views.GroupViewSet)
 urlpatterns = [
     path('superadmin/', admin.site.urls),
     path('product', include('apishop.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^auth-jwt/', obtain_jwt_token),
+    url(r'^auth-jwt-refresh/', refresh_jwt_token),
+    url(r'^auth-jwt-verify/', verify_jwt_token),
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
