@@ -15,11 +15,18 @@ class ProductView(APIView):
 # or
 
 
-class ProductView(generics.ListCreateAPIView, generics.RetrieveAPIView):
+class ProductView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    #overridden list methods 
+    def list(self, request):
+        print(request.user)
+        # Note the use of `get_queryset()` instead of `self.queryset`
+        queryset = self.get_queryset()
+        serializer = ProductSerializer(queryset, many=True)
+        return Response(serializer.data)
 
-class ProductDetailView(generics.RetrieveAPIView):
+class ProductDetailView(generics.RetrieveUpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
@@ -27,6 +34,6 @@ class CategoryView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-class CategoryDetailView(generics.RetrieveAPIView):
+class CategoryDetailView(generics.RetrieveUpdateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
