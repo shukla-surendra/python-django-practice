@@ -14,6 +14,7 @@ class ProductView(APIView):
 '''
 # or
 
-class ProductView(generics.ListAPIView):
+
+class ProductView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
