@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.urls import path, include
 from django.conf.urls import url
-from apishop.views import ProductView, CategoryView
+from apishop.views import ProductView, ProductDetailView, CategoryView, CategoryDetailView
 from rest_framework import routers
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
+    url(r'^product/(?P<pk>\d+)/$', ProductDetailView.as_view(), name="user_detail"),
+    url(r'^category/(?P<pk>\d+)/$', CategoryDetailView.as_view(), name="category_detail"),
     path('product', ProductView.as_view()),
     path('category', CategoryView.as_view())
 ]
