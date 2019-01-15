@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'quickstart',
-	'apishop'
+	'apishop',
+    'accounts'
 ]
 
 MIDDLEWARE = [
