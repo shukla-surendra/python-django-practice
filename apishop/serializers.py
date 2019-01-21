@@ -13,13 +13,20 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ('id', 'name', 'slug', 'created_at', 'updated_at')
 
-class CartSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cart
-        fields = ('id', 'user', 'created_at', 'updated_at')
-
 
 class CartItemSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = CartItem
         fields = "__all__"
+
+
+class CartSerializer(serializers.ModelSerializer):
+    cart_items = CartItemSerializer(read_only=False)
+
+    class Meta:
+        model = Cart
+        fields = ('id', 'user', 'created_at', 'updated_at','cart_items')
+
+
+

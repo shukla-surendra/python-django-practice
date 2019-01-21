@@ -56,18 +56,21 @@ class CartView(generics.ListCreateAPIView):
         for the currently authenticated user.
         """
         user = self.request.user
+        return Cart.objects.filter(user=user)
+        '''
         try:
             cart = Cart.objects.get(user=user)
+            print(cart)
         except Cart.DoesNotExist:
             raise NotFound()
         return CartItem.objects.filter(cart=cart)
-
+        '''
     # overridden list methods
     def list(self, request):
-        print(request.user)
+        print(request.user.id)
         # Note the use of `get_queryset()` instead of `self.queryset`
         queryset = self.get_queryset()
-        serializer = CartItemSerializer(queryset, many=True)
+        serializer = CartSerializer(queryset, many=True)
         return Response(serializer.data)
 
     # def create(self, request, *args, **kwargs):
