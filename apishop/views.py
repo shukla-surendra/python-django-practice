@@ -56,7 +56,7 @@ class CartView(generics.ListAPIView):
         for the currently authenticated user.
         """
         user = self.request.user
-        return Cart.objects.filter(user=user)
+        return Cart.objects.filter(user=user, checked_out=False)
         '''
         try:
             cart = Cart.objects.get(user=user)
@@ -84,12 +84,36 @@ class CartCreateView(APIView):
         return Cart.objects.filter(user=user)
 
     def post(self, request, format=None):
-        cart = Cart(user=request.user)
-        cart.save()
+        cart_exits = True
+        try:
+            cart = Cart.objects.get(user=request.user, checked_out=False)
+        except NotFound as nf:
+            cart_exits = False
+            cart = Cart(user=request.user)
+            cart.save()
         for my_dict in request.data['cart_items']:
-            cart_item = CartItem(product=Product.objects.get(id=my_dict['product_id']), qty=my_dict['qty'])
-            cart_item.save()
-            cart.cart_items.add(cart_item)
+            product = Product.objects.get(id=my_dict['product_id'])
+            if cart_exits is True:
+                try:
+                   Cart.objects.get(cart_items__product=my_dict['product_id'])
+                   for line_item in cart.cart_items.all():
+                       if(line_item.product.id == int(my_dict['product_id'])):
+                           line_item.qty += my_dict['qty']
+                           total_qty = line_item.qty
+                           new_price = total_qty * product.price
+                           print(new_price)
+                           line_item.price = new_price
+                           line_item.save()
+                except Exception:
+                    price = my_dict['qty'] * product.price
+                    cart_item = CartItem(product=Product.objects.get(id=my_dict['product_id']), price= price, qty=my_dict['qty'])
+                    cart_item.save()
+                    cart.cart_items.add(cart_item)
+            else:
+                price = my_dict['qty'] * product.price
+                cart_item = CartItem(product=Product.objects.get(id=my_dict['product_id']), price= price, qty=my_dict['qty'])
+                cart_item.save()
+                cart.cart_items.add(cart_item)
         queryset = self.get_queryset()
         serializer = CartSerializer(queryset, many=True)
         return Response(serializer.data)
