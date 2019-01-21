@@ -25,3 +25,5 @@ https://www.geeksforgeeks.org/python-multiple-choice-questions/
 
 https://github.com/donnemartin/interactive-coding-challenges
 https://github.com/keon/algorithms
+
+http://books.agiliq.com/projects/django-api-polls-tutorial/en/latest/index.html
