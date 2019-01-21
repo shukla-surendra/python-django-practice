@@ -18,11 +18,11 @@ class CartItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CartItem
-        fields = "__all__"
+        fields = ('id', 'product', 'price', 'qty')
 
 
 class CartSerializer(serializers.ModelSerializer):
-    cart_items = CartItemSerializer(read_only=False)
+    cart_items = CartItemSerializer(many=True)
 
     class Meta:
         model = Cart

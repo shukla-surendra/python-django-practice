@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.urls import path, include
 from django.conf.urls import url
-from apishop.views import ProductView, ProductDetailView, CategoryView, CategoryDetailView, CartView
+from apishop.views import ProductView, ProductDetailView, CategoryView, CategoryDetailView, CartView, CartCreateView
 
 urlpatterns = [
     url(r'^product/(?P<pk>\d+)/$', ProductDetailView.as_view(), name="user_detail"),
     url(r'^category/(?P<pk>\d+)/$', CategoryDetailView.as_view(), name="category_detail"),
     path('product', ProductView.as_view()),
     path('category', CategoryView.as_view()),
-    path('cart', CartView.as_view())
+    path('cart', CartView.as_view()),
+    path('cart/create', CartCreateView.as_view())
 ]

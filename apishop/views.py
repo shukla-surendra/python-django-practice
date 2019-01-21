@@ -45,7 +45,7 @@ class CategoryDetailView(generics.RetrieveUpdateAPIView):
     serializer_class = CategorySerializer
 
 
-class CartView(generics.ListCreateAPIView):
+class CartView(generics.ListAPIView):
     # queryset = CartItem.objects.all() #no need to define can be overridden
     serializer_class = CartSerializer
     permission_classes = (IsAuthenticated,)
@@ -67,13 +67,29 @@ class CartView(generics.ListCreateAPIView):
         '''
     # overridden list methods
     def list(self, request):
-        print(request.user.id)
         # Note the use of `get_queryset()` instead of `self.queryset`
         queryset = self.get_queryset()
         serializer = CartSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    # def create(self, request, *args, **kwargs):
-    #   ''' I wanted to do some stuff with serializer.data here '''
-    #   return super(CartItemSerializer, self).create(request, *args, **kwargs)
+class CartCreateView(APIView):
+    serializer_class = CartSerializer
+    permission_classes = (IsAuthenticated,)
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        return Cart.objects.filter(user=user)
 
+    def post(self, request, format=None):
+        cart = Cart(user=request.user)
+        cart.save()
+        for my_dict in request.data['cart_items']:
+            cart_item = CartItem(product=Product.objects.get(id=my_dict['product_id']), qty=my_dict['qty'])
+            cart_item.save()
+            cart.cart_items.add(cart_item)
+        queryset = self.get_queryset()
+        serializer = CartSerializer(queryset, many=True)
+        return Response(serializer.data)
