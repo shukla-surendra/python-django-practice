@@ -101,7 +101,6 @@ class CartCreateView(APIView):
                            line_item.qty += my_dict['qty']
                            total_qty = line_item.qty
                            new_price = total_qty * product.price
-                           print(new_price)
                            line_item.price = new_price
                            line_item.save()
                 except Exception:

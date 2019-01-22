@@ -27,3 +27,18 @@ https://github.com/donnemartin/interactive-coding-challenges
 https://github.com/keon/algorithms
 
 http://books.agiliq.com/projects/django-api-polls-tutorial/en/latest/index.html
+
+https://python-3-patterns-idioms-test.readthedocs.io/en/latest/
+
+Celery+RabbitMQ+Cafka
+https://zapier.com/blog/async-celery-example-why-and-how/
+
+https://medium.com/the-andela-way/asynchronous-processing-in-celery-79f88fa599a5
+
+https://stackoverflow.com/questions/20164688/celery-and-django-simple-example
+
+https://tests4geeks.com/python-celery-rabbitmq-tutorial/
+
+https://theblog.workey.co/my-experiences-with-a-long-running-celery-based-microprocess-b2cc30da94f5
+
+https://www.toptal.com/python/orchestrating-celery-python-background-jobs
