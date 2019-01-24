@@ -1,5 +1,5 @@
 '''
-  #DO NOT EVER HAS SCRIPT NAME AS INBUILD MODULE NAME
+  # DO NOT EVER HAS SCRIPT NAME AS INBUILD MODULE NAME
 '''
 import random
 
@@ -15,7 +15,7 @@ print(random.randrange(10))
    
    If “r” is a random number, then its value will lie in the range start <= r < stop.
 
-#Syntax.
+# Syntax.
 
 random.randrange(start, stop[, step])
 [start] – It is the base value of the range and may fall in the selection.
