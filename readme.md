@@ -42,3 +42,12 @@ https://tests4geeks.com/python-celery-rabbitmq-tutorial/
 https://theblog.workey.co/my-experiences-with-a-long-running-celery-based-microprocess-b2cc30da94f5
 
 https://www.toptal.com/python/orchestrating-celery-python-background-jobs
+
+
+
+https://data-flair.training/blogs/python-built-in-functions/ # seems best
+
+https://docs.djangoproject.com/en/2.1/py-modindex/
+https://django.readthedocs.io/en/2.1.x/py-modindex.html
+
+#
