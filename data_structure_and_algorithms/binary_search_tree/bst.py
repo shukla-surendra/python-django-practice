@@ -62,8 +62,64 @@ class BinarySearchTree:
 
         if node.right_child:
             self.traverse_in_order(node.right_child)
+    
+    def delete(self, data):
+        if self.root_node:
+            self.delete_node(data, self.root_node)
 
-    # deletion needs to implement
+    def minValueNode(self, node): 
+        current = node 
+        # loop down to find the leftmost leaf 
+        while(current.left_node is not None): 
+            current = current.left_node  
+        return current
+    def delete_node(self, data):
+        # Base Case 
+        if self.root_node is None: 
+            return self.root_node
+        else:
+            return self.deleteNode(self.root_node, data)  
+
+    def deleteNode(self, node, data): 
+
+        # If the key to be deleted is smaller than the root's 
+        # key then it lies in  left subtree 
+        if data < node.data: 
+            node.left_child = self.deleteNode(node.left_child, data) 
+        
+        # If the kye to be delete is greater than the root's key 
+        # then it lies in right subtree 
+        elif(data > node.data): 
+            node.right_child = self.deleteNode(node.right_child, data) 
+
+        # If key is same as root's key, then this is the node 
+        # to be deleted 
+        else: 
+            
+            # Node with only one child or no child 
+            if node.left_child is None : 
+                temp = node.right_child  
+                node = None 
+                return temp  
+                    
+            elif node.right is None : 
+                temp = node.left_child  
+                node = None
+                return temp 
+
+            # Node with two children: Get the inorder successor 
+            # (smallest in the right subtree) 
+            temp = self.minValueNode(node.right_child) 
+
+            # Copy the inorder successor's content to this node 
+            node.data = temp.data 
+
+            # Delete the inorder successor 
+            node.right = self.deleteNode(node.right_child , temp.data) 
+
+
+        return node  
+
 
 
 bst = BinarySearchTree()
@@ -89,10 +145,14 @@ bst_alpha.insert("C")
 bst_alpha.insert("B")
 bst_alpha.insert("F")
 bst_alpha.insert("E")
+bst_alpha.insert("G")
 
 
 print("smallest item in BST", bst_alpha.get_min_value())
 print("biggest item in BST", bst_alpha.get_max_value())
 
 print("**************************************************")
-bst_alpha.traverse();
+
+bst_alpha.traverse()
+bst_alpha.delete_node("B")
+bst_alpha.traverse()

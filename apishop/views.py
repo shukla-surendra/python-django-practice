@@ -5,6 +5,7 @@ from apishop.models import Product, Category, Cart, CartItem
 from apishop.serializers import ProductSerializer, CategorySerializer, CartSerializer, CartItemSerializer
 from rest_framework import generics
 from rest_framework import viewsets
+from django.http import HttpResponse
 from rest_framework.exceptions import NotFound
 from rest_framework.permissions import IsAuthenticated
 
@@ -71,6 +72,17 @@ class CartView(generics.ListAPIView):
         queryset = self.get_queryset()
         serializer = CartSerializer(queryset, many=True)
         return Response(serializer.data)
+
+class BroucherView(APIView):
+  
+    def get(self, request, format=None):
+        file_path = "django.docx"
+        NameOfFile = "django.docx"
+        FilePointer = open(file_path,"rb")
+        response = HttpResponse(FilePointer,content_type='application/msword')
+        response['Content-Disposition'] = 'attachment; filename='+NameOfFile
+        return response
+      
 
 class CartCreateView(APIView):
     serializer_class = CartSerializer
