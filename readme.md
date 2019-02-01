@@ -50,4 +50,36 @@ https://data-flair.training/blogs/python-built-in-functions/ # seems best
 https://docs.djangoproject.com/en/2.1/py-modindex/
 https://django.readthedocs.io/en/2.1.x/py-modindex.html
 
+https://www.pythonforthelab.com/blog/what-are-hashable-objects/
+
 #
+
+
+    requests
+    tqdm
+    pillow
+    scrapy
+    numpy
+    pandas
+    scapy
+    matplotlib
+    kivy
+    nltk
+    keras
+    SQLAlchemy
+    Django
+    Twisted
+
+Extra libraries:
+
+    flask
+    scipy
+    pytorch
+    DjangoCMS
+    click
+    astropy
+    scikit-learn
+    opencv
+    PyQt
+    tensorflow
+    wagtail
