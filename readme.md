@@ -56,6 +56,8 @@ https://www.pythonforthelab.com/blog/what-are-hashable-objects/
 
 https://github.com/PacktPublishing/Django-2-by-Example
 
+https://realpython.com/testing-in-django-part-1-best-practices-and-examples/
+
 #
 
 
