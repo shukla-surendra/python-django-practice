@@ -52,6 +52,10 @@ https://django.readthedocs.io/en/2.1.x/py-modindex.html
 
 https://www.pythonforthelab.com/blog/what-are-hashable-objects/
 
+#Django 2 Examples:
+
+https://github.com/PacktPublishing/Django-2-by-Example
+
 #
 
 
