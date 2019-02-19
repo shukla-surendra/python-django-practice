@@ -25,10 +25,27 @@
     </form>
     </div>
     <div class="col-sm-4">
-     &nbsp;
+    <h3>Ajax Form</h3>
+    <form id="frm_ajax" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="upload_name" multiple />
+    <input type="file" name="upload_second_file" multiple/>
+    <input type="text" name="name[]"/>
+    <input type="text" name="name[]"/>
+    <button type="submit" class="btn btn-default">Submit</button>
+    </form>
     </div>
   </div>
 </div>
+<script>
+$(document).on("submit", "#frm_ajax", function(e){
+  e.preventDefault();
+  data = new FormData(this)
+  $.ajax({url:'',type:'POST', data:data,processData:false,success:function(res, status, xHr){console.log(res)}})
+
+})
+
+</script>
 
 </body>
 </html>
