@@ -89,3 +89,11 @@ Extra libraries:
     PyQt
     tensorflow
     wagtail
+
+
+'''
+ALLOWED_HOSTS
+['www.example.com']  # Fully qualified domain
+['.example.com']  # Subdomain wildcard, matches example.com and www.example.com 
+['*']  # Matches anything
+'''
