@@ -10,7 +10,7 @@ Password : {password}
 <p>
 Kindly find below detail for your service.
 </p>
-ExampleCo Listing - 1 Year/s (06/03/2019 - 05/03/2020) Rs. 1400<br/>
+ExampleCo Listing - 1 Year/s ({start_date} - {end_date}) Rs. 1400<br/>
 ------------------------------------------------------<br/>
 Sub Total: Rs. 1400<br/>
 Credit: Rs. 0.00<br/>
@@ -42,5 +42,5 @@ Example Pvt. Ltd<br/><br/>
 </p>
 </body></html>
 """
-replace_dict = {"name":"Surendra shukla", "email":"","password":""}
+replace_dict = {"name":"Surendra shukla", "email":"","password":"", "start_date":"","end_date":""}
 print(EMAIL_TEMPLATE.format(**replace_dict))
