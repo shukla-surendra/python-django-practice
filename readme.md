@@ -97,3 +97,5 @@ ALLOWED_HOSTS
 ['.example.com']  # Subdomain wildcard, matches example.com and www.example.com 
 ['*']  # Matches anything
 '''
+
+https://www.toptal.com/django/django-top-10-mistakes

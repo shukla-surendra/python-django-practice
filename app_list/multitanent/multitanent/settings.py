@@ -119,4 +119,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' #use to create url with given static prefix 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")] # used to detect static folder inside app
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') # used in collect static 
