@@ -99,3 +99,9 @@ ALLOWED_HOSTS
 '''
 
 https://www.toptal.com/django/django-top-10-mistakes
+https://medium.com/@harishoraon/guide-line-for-django-application-e1a1c075aeed
+
+References:
+https://developer.mozilla.org/en-US/docs/Web/HTTP
+https://developer.mozilla.org/en-US/docs/Web/Events
+https://en.wikipedia.org/wiki/DOM_events
