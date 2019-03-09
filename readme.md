@@ -105,3 +105,73 @@ References:
 https://developer.mozilla.org/en-US/docs/Web/HTTP
 https://developer.mozilla.org/en-US/docs/Web/Events
 https://en.wikipedia.org/wiki/DOM_events
+
+
+
+What are Mutable and Immutable Data structures in Python ?
+What are tuples ?
+What is difference between tuple and list ? Where will you use tuple and where will you use list ?
+What is Dynamic Typing ?
+Justify this statement : Everything is object in Python ?
+Python is Call by Value or Call by Reference ?
+How do you create a dictionary which can preserve the order of pairs?
+Can you use mutable Data Structure as key in Dictionaries ?
+What is the use of enumerate() in Python?
+What are *args, **kwargs ?
+How instance variables are different from class variables?
+Differentiate between “*.py” file and “*.pyc” file?
+Explain difference between Map vs Reduce Vs Filter ?
+What are Lamda Functions ?
+What is List comprehension ?
+What is __init__ functions ?
+What are Generators ?
+What are Iterators ?
+Can generator be used to create Iterators ? Give example
+Can iterators be used to create generator ?
+Differentiate between Range and Xrange ?
+What is Method Resolution Order ?
+Python supports Multi-Level Inheritance or Multiple Inheritance or Both ?
+Does Python supports multi-threading ?
+What is multi-threading? What is GIL(Global interpreter lock) issue ?
+What are decorator ? How to create custom decorator ?
+How memory is managed in Python ?
+How does Python's garbage collection work?
+What are Regular Expressions ?
+Differentiate between append() and extend() methods ?
+What is Web Scraping? How do you achieve it in Python?
+Explain the use “with” statement in python?
+What are Middlewares ?
+What is Monkey patching ? Give example ?
+What's the difference between py2.x and py3.x ?
+Give examples of Python Framework ?
+
+
+How do you create new project in Django ?
+How do you create new app in Django ?
+Explain MVT architecture of Django ?
+What are Middlewares ?
+How do you create custom Middleware ? What special methods are used to handle request/response/exception ?
+In what order does middlewares listed in settings.py are executed when request comes ? Top to bottom or bottom to up.
+In what order does middlewares listed in settings.py are executed when response goes ? Top to bottom or bottom to up.
+Explain Django ORM(Object-relational mapper) ?
+How does session framework works in Django ?
+What is CSRF ? How can you prevent csrf attack ?
+What are Django forms ?
+What are Django Models ?
+How do you migrate your tables in Django ?
+What are model manager and how do you write custom manager ?
+What are Django Templates ? How template inheritance works in Django ?
+What is the use of wsgi.py file ?
+What are signals ? How do you create custom signals in Django ?
+What are receiver functions in Django ?
+What are Django template tags ?
+How do you create custom template tags ?
+What are generic views ? How many types of generic views are there ?
+What’s the difference between select_related and prefetch_related in Django ORM?
+What is the use of context processors in Django ?
+What 3rd party Django apps you have used ?
+What are Python Virtual Environments ?
+
+
+
+https://theviralcode.com/2017/05/09/deploy-django-nginx-gunicorn-ubuntu/
